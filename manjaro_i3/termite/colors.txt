@@ -1,0 +1,42 @@
+
+/* Dark background pinkish text colors */
+
+[colors]
+
+# special
+foreground      = #c7ccd1
+foreground_bold = #c7ccd1
+cursor          = #c7ccd1
+background      = #020305
+
+# black
+color0  = #1c2023
+color8  = #747c84
+
+# red
+color1  = #c7ae95
+color9  = #c7ae95
+
+# green
+color2  = #c795b2
+color10 = #c795a1
+
+# yellow
+color3  = #c7b995
+color11 = #bf95c7
+
+# blue
+color4  = #ae95c7
+color12 = #ae95c7
+
+# magenta
+color5  = #c795ae
+color13 = #c795ae
+
+# cyan
+color6  = #95aec7
+color14 = #95aec7
+
+# white
+color7  = #c7ccd1
+color15 = #f3f4f5

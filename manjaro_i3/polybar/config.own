@@ -1,0 +1,244 @@
+
+
+;"""""""""""""""""""""""
+;		       ;
+;	COLORS	       ;
+;		       ;
+;"""""""""""""""""""""""
+
+[colors]
+black =		#000000
+white =        	#ffffff
+
+
+light_grey = 	#E0E3EA
+dark_grey = 	#00222E
+blue_grey = 	#003a4f
+
+black_blue = 	#000d1a
+pure_grey = 	#0d0d0d
+mountain_light=	#6E8B99
+orange = 	#ff9000
+
+sweet_mars = 	#F67E7D
+
+bg = 		${colors.pure_grey}
+fg = 		${colors.light_grey}
+
+;"""""""""""""""""""""""
+;		       ;
+;	BAR	       ;
+;		       ;
+;"""""""""""""""""""""""
+
+[bar/top]
+
+bottom = false
+;fixed-center = true;
+
+height = 22
+width = 100%
+
+;offset-x = 0
+:offset-y = 0
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+border-size = 0
+
+font-0 = Noto Sans Mono:style=Regular:size=8
+font-1 = Font Awesome:pixelsize=8:antialias=true;1
+
+module-margin = 1
+line-size = 1
+
+modules-right = cpu battery wlan eth fs
+modules-center = date
+modules-left = i3
+
+tray-position = right 
+tray-padding = 2 
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;""""""""""""""""""""""""
+;		        ;
+;	DATE    	;	
+;			;
+;""""""""""""""""""""""""
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %m-%d
+time = %r
+
+format-padding = 3
+;format-background = ${colors.sweet_mars}
+
+format = <label>
+format-foreground = ${colors.fg}
+
+label =  %date%  %time%
+
+font-0 = ${bar/top.font-0}
+
+;""""""""""""""""""""""""
+;			;
+;	I3 		;
+;			;
+;""""""""""""""""""""""""
+
+[module/i3]
+
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = false
+
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+
+fuzzy-match = true
+format-padding = 2
+;label-mode-padding = 1
+
+format-inactive-font-0 = Noto Sans Mono:style=regular:size=10
+format-focused-font-1 = Font Awesome:pixelsize=12:antialias=true;1
+
+
+label-focused-foreground = ${colors.orange}
+;label-focused-background = ${colors.mountain_light}
+
+label-focused-padding = 1
+label-unfocused-padding = 1
+
+label-focused            = %icon%
+label-unfocused		 = %icon%
+label-urgent 		 = %icon%
+
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = ${colors.dark_grey}
+
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+;ws-icon-default = 
+
+;""""""""""""""""""""""""
+;			;
+;	BATTERY	        ;
+;			;
+;""""""""""""""""""""""""
+
+[module/battery]
+
+type = internal/battery
+;full-at = 98
+battery = BAT1
+adapter = ADP1
+
+poll-interval = 5
+
+;format-charging = <animation-charging> <label-charging>
+
+label-charging =  %percentage%%
+label-discharging =  %percentage%%
+
+"""""""""""""""""""""""""
+;			;
+;	 CPU		;
+;			;
+;""""""""""""""""""""""""
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = %percentage%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+;""""""""""""""""""""""""
+;			;
+;	FILESYSTEM	;
+;			;
+;""""""""""""""""""""""""
+
+[module/fs]
+
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+format-mounted = <label-mounted>
+format-mounted-padding = 1
+
+label-mounted = %free%
+
+;""""""""""""""""""""""""
+;			;
+;	WLAN		;
+;			;
+;""""""""""""""""""""""""
+
+[module/wlan]
+
+type = internal/network
+interface = wlp58s0
+
+interval = 3.0
+
+#udspeed-minwidth = 5
+
+
+#accumulate-stats = true
+
+#unknown-as-up = true
+
+label-connected =  %essid%
+label-disconnected =  Not connected
+
+
